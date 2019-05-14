@@ -25,7 +25,17 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'traq_webhook'
+
+client = TraqWebhook::Client.new do |config|
+  config.id = 'YOUR TRAQ_WEBHOOK_ID'
+  config.token = 'YOUR TRAQ_SECRET_TOKEN'
+end
+
+message = 'example message'
+client.post(message)
+```
 
 ## Development
 
