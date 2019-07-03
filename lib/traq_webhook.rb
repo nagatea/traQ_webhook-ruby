@@ -5,7 +5,7 @@ require "openssl"
 
 module TraqWebhook
   class Client
-    attr_accessor :id, :token
+    attr_accessor :id, :token, :channel_id
 
     def initialize
       yield self if block_given?
@@ -17,6 +17,7 @@ module TraqWebhook
       req = Net::HTTP::Post.new(uri.path)
       req['Content-Type'] = 'text/plain; charset=utf-8'
       req['X-TRAQ-Signature'] = signature
+      req['X-TRAQ-Channel-Id'] = self.channel_id unless self.channel_id.nil?
       req.body = message
       option = {
         use_ssl: uri.scheme = "https" 

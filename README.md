@@ -29,8 +29,9 @@ Or install it yourself as:
 require 'traq_webhook'
 
 client = TraqWebhook::Client.new do |config|
-  config.id = 'YOUR TRAQ_WEBHOOK_ID'
-  config.token = 'YOUR TRAQ_SECRET_TOKEN'
+  config.id         = 'YOUR TRAQ_WEBHOOK_ID'
+  config.token      = 'YOUR TRAQ_SECRET_TOKEN'
+  config.channel_id = 'TRAQ_CHANNEL_ID '  # Option
 end
 
 message = 'example message'
